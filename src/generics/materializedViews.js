@@ -267,6 +267,7 @@ const renameMaterializedView = async (temporaryMaterializedViewName, tableName) 
 		else randomViewName = null
 		await sequelize.query(renameNewViewQuery, { transaction: t })
 		await t.commit()
+		committed = true
 
 		return randomViewName
 	} catch (error) {
